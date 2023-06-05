@@ -1,13 +1,7 @@
-def main(n):
-    bitsize = [3, 5, 9, 7, 2]
-    bitstart = [sum(bitsize[:i]) for i in range(len(bitsize))]
-    arr = ((n >> bitstart[i]) & (1 << bitsize[i] - 1)
-           for i in range(len(bitsize)))
-    arr = ("0x%x" % n for n in arr)
-    res = []
-    for i in arr:
-        tmp = ("M" + str(arr. + 1), i)
-        res.append(tmp)
-    return res
-
-print(main(3502792))
+def main(x):
+    bit_size = [3, 5, 9, 7, 2]
+    m = []
+    for i in range(len(bit_size)):
+        m.append(int(bin(x)[2:][-bit_size[i]::], 2))
+        x = x >> bit_size[i]
+    return [('M' + str(1 + i), m[i]) for i in range(len(m)) if i != 2]

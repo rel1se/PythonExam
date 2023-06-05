@@ -1,5 +1,3 @@
-
-
 def main(n):
     n = int(n)
     bitsize = [4, 1, 10, 8]

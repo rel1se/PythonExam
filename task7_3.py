@@ -3,15 +3,21 @@
 # Неиспользуемые поля результата должны содержать нулевые биты
 
 def main(e):
-    e1 = bin(int(e['E1']))[2:].zfill(9)
-    e2 = bin(int(e['E2']))[2:].zfill(10)
-    e3 = bin(int(e['E3']))[2:].zfill(10)
+    # e1 = bin(e['E1'])[2:].zfill(9)
+    # e2 = bin(e['E2'])[2:].zfill(10)
+    # e3 = bin(e['E3'])[2:].zfill(10)
+    # e4 = "00000000"
+    # e5 = bin(e['E5'])[2:].zfill(7)
+    # return str(int(e5 + e4 + e3 + e2 + e1, 2))
+    e1 = bin(e['E1'])[2:].zfill(9)
+    e2 = bin(e['E2'])[2:].zfill(10)
+    e3 = bin(e['E3'])[2:].zfill(10)
     e4 = "00000000"
-    e5 = bin(int(e['E5']))[2:].zfill(7)
+    e5 = bin(e['E5'])[2:].zfill(7)
     return str(int(e5 + e4 + e3 + e2 + e1, 2))
 
 
-main({'E1': 185, 'E2': 158, 'E3': 370, 'E5': 246})
+print(main({'E1': 185, 'E2': 158, 'E3': 370, 'E5': 246}))
 main({'E1': 381, 'E2': 553, 'E3': 756, 'E5': 79})
 main({'E1': 191, 'E2': 134, 'E3': 60, 'E5': 149})
 main({'E1': 138, 'E2': 30, 'E3': 917, 'E5': 109})
