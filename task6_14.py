@@ -1,20 +1,21 @@
-s = ({1976, 1984, "TEXT"},
-     {1976, 1984, "TCSH"},
-     {1976, 2001},
-     {1965, 1984, "TEXT"},
-     {1965, 1984, "TCSH"},
-     {1965, 2001, "GLSL"},
-     {1965, 2001, "ABAP"},
-     {1996, 1984, "GLSL"},
-     {1996, 1984, "ABAP"},
-     {1996, 2001, "TEXT"},
-     {1996, 1984, "TCSH"})
-
-
 def main(x):
-    s1 = set(x)
-    return [i for i in range(len(s))
-            if not (len((s[i]) - s1))][0]
+    my_dict = {1976: {1984: {'TEXT': 0, 'TCSH': 1},
+                      2001: 2},
+               1965: {1984: {'TEXT': 3, 'TCSH': 4},
+                      2001: {'GLSL': 5, 'ABAP': 6}},
+               1996: {1984: {'GLSL': 7, 'ABAP': 8},
+                      2001: {'TEXT': 9, 'TCSH': 10}}}
+    while isinstance(my_dict, dict):
+        for i in x:
+            if i in my_dict.keys():
+                my_dict = my_dict[i]
+                break
+    return my_dict
 
 
-print(main([1984, 'GLSL', 'TCSH', 1996]))
+print(main([1984, 'GLSL', 'TCSH', 1996]) == 7)
+print(main([1984, 'ABAP', 'TCSH', 1996]) == 8)
+print(main([2001, 'GLSL', 'TEXT', 1996]) == 9)
+print(main([1984, 'ABAP', 'TEXT', 1965]) == 3)
+print(main([1984, 'GLSL', 'TCSH', 1976]) == 1)
+

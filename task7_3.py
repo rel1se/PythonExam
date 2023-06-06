@@ -3,12 +3,6 @@
 # Неиспользуемые поля результата должны содержать нулевые биты
 
 def main(e):
-    # e1 = bin(e['E1'])[2:].zfill(9)
-    # e2 = bin(e['E2'])[2:].zfill(10)
-    # e3 = bin(e['E3'])[2:].zfill(10)
-    # e4 = "00000000"
-    # e5 = bin(e['E5'])[2:].zfill(7)
-    # return str(int(e5 + e4 + e3 + e2 + e1, 2))
     e1 = bin(e['E1'])[2:].zfill(9)
     e2 = bin(e['E2'])[2:].zfill(10)
     e3 = bin(e['E3'])[2:].zfill(10)

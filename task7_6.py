@@ -1,9 +1,10 @@
-def main(n):
-    n = int(n)
-    bitsize = [4, 1, 10, 8]
-    bitstart = [sum(bitsize[:i]) for i in range(len(bitsize))]
-    arr = ((n >> bitstart[i]) & ((1 << bitsize[i]) - 1)
-           for i in range(len(bitstart)))
-    arr = ("0x%x" % n for n in arr)
-    set = tuple(arr)
-    return set
+def main(x):
+    bit_size = [4, 1, 10, 8]
+    m = []
+    for i in range(len(bit_size)):
+        m.append(int(bin(int(x))[2:][-bit_size[i]::], 2))
+        x = int(x) >> bit_size[i]
+    return tuple([hex(m[i]) for i in range(len(m))])
+
+
+print(main('3029662'))
